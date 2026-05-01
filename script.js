@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-
+const NGROK_URL = "https://modish-jay-unviolently.ngrok-free.dev";
     // ============================================================
     // PHẦN 1: LOGIC CHO TRANG OPTIONS (BƯỚC 2 - TABS)
     // ============================================================
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 offsets: pcbList.map(p => ({ id: p.id, x: p.x_mm, y: p.y_mm }))
             };
 
-            fetch('/generate', {
+            fetch('${NGROK_URL}/generate', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(payload)
@@ -299,10 +299,10 @@ document.addEventListener("DOMContentLoaded", function() {
             panel.innerHTML = html;
         }
 
-        window.saveFile = function() { window.location.href = "/download"; };
+        window.saveFile = function() { window.location.href = "${NGROK_URL}/download"; };
         window.uploadToPi = function() {
             if (!confirm("Nạp code vào máy CNC?")) return;
-            fetch('/upload_serial', { method: 'POST' })
+            fetch('${NGROK_URL}/upload_serial', { method: 'POST' })
             .then(r => r.json()).then(d => {
                 alert(d.status === 'ok' ? "✅ " + d.message : "❌ " + d.error);
             }).catch(() => alert("Lỗi kết nối!"));
