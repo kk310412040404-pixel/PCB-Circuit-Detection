@@ -260,6 +260,7 @@
     </div>
 
     <script>
+        const NGROK_URL = "https://modish-jay-unviolently.ngrok-free.dev";
         // --- DOM Elements ---
         const btnAnalyze = document.getElementById('btnAnalyze');
         const btnReset = document.getElementById('btnReset');
@@ -444,7 +445,7 @@
             }
 
             try {
-                const response = await fetch('/predict', {
+                const response = await fetch('${NGROK_URL}/predict', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ image_name: defect })
