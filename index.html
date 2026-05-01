@@ -6,9 +6,10 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
+    const NGROK_URL = "https://modish-jay-unviolently.ngrok-free.dev";
     <div class="container">
         <h1>NHẬP FILE</h1>
-        <form action="/upload" method="post" enctype="multipart/form-data">
+        <form action="${NGROK_URL}/upload" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label>File Trace</label>
                 <input type="file" name="trace" required accept=".pdf">
