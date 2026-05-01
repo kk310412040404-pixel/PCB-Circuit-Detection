@@ -8,7 +8,7 @@
 </head>
 
 <body class="step2-layout"> 
-
+    const NGROK_URL = "https://modish-jay-unviolently.ngrok-free.dev";
     <nav class="navbar navbar-dark bg-dark mb-4 shadow-sm">
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1">PCB Tool - Bước 2</span>
@@ -27,7 +27,7 @@
                             <span>Rộng: <strong>{{ w_mm }} mm</strong></span><br>
                             <span>Cao: <strong>{{ h_mm }} mm</strong></span>
                         </div>
-                        <form action="/set_options" method="POST">
+                        <form action="${NGROK_URL}/set_options" method="POST">
                             <div class="mb-3">
                                 <label for="quantity" class="form-label fw-bold">Số lượng mạch:</label>
                                 <input type="number" class="form-control form-control-lg text-center fw-bold"
@@ -75,7 +75,7 @@
                             </li>
                         </ul>
                     </div>
-                    const NGROK_URL = "https://modish-jay-unviolently.ngrok-free.dev";
+                    
                     <div class="card-body text-center bg-light d-flex align-items-center justify-content-center" style="min-height: 400px;">
                         <div class="tab-content w-100">
                             <div class="tab-pane fade show active" id="trace">
