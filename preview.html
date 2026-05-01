@@ -189,6 +189,7 @@
 </div>
 
 <script>
+    const NGROK_URL = "https://modish-jay-unviolently.ngrok-free.dev";
     // --- CẤU HÌNH ---
     const MACHINE_WIDTH = 200; // X
     const MACHINE_HEIGHT = 150; // Y
@@ -310,7 +311,7 @@
         document.getElementById('filename-display').innerText = filename;
         document.getElementById('loading').style.display = 'block';
 
-        fetch(`/api/get_last_gcode?filename=${filename}`)
+        fetch(`${NGROK_URL}/api/get_last_gcode?filename=${filename}`)
             .then(res => res.json())
             .then(data => {
                 document.getElementById('loading').style.display = 'none';
@@ -556,7 +557,7 @@
         const params = new URLSearchParams(window.location.search);
         const filename = params.get("filename");
 
-        const res = await fetch(`/api/get_latest_optimized_image?filename=${filename}`);
+        const res = await fetch(`${NGROK_URL}/api/get_latest_optimized_image?filename=${filename}`);
         const data = await res.json();
 
         if (data.status === 'ok') {
